@@ -7,7 +7,7 @@ services:
     cap_add:
       - NET_ADMIN
     ports:
-      - 127.0.0.1:1194:1194/udp
+      - 172.25.189.223:1194:1194/udp
     volumes:
       - $PWD/data:/etc/openvpn
     networks:
