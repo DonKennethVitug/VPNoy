@@ -9,6 +9,8 @@
 
 ## Setup
 
+    docker network create vpnoy-network
+
     npm run ovpn:setup
 
 ## Client Management
