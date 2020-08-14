@@ -1,0 +1,28 @@
+{
+  "name": "vpnoy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run docker:init",
+    "docker:init": "docker-compose up -d",
+    "docker:start": "sudo docker-compose start",
+    "docker:restart": "npm run docker:restart:hard",
+    "docker:restart:soft": "sudo docker restart vpnoy",
+    "docker:restart:hard": "npm run docker:rm && npm run docker:init",
+    "docker:stop": "sudo docker stop vpnoy",
+    "docker:rm": "sudo docker rm -f vpnoy",
+    "docker:volume:reset": "rm -rf data",
+    "ovpn:genconfig": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_genconfig -u udp://149.28.230.226:1194 -n 1.1.1.1 -n 1.0.0.1",
+    "ovpn:initpki": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm -it kylemanna/openvpn ovpn_initpki",
+    "ovpn:easyrsa": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm -it kylemanna/openvpn easyrsa build-client-full admin",
+    "ovpn:getclient": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_getclient admin > $PWD/clients/admin.ovpn",
+    "ovpn:setup": "npm run ovpn:genconfig && npm run ovpn:initpki && npm run docker:init && npm run ovpn:easyrsa && npm run ovpn:getclient"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:DonKennethVitug/VPNoy.git"
+  },
+  "author": "Don Kenneth G. Vitug",
+  "license": "MIT"
+}

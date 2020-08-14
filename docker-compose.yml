@@ -1,0 +1,19 @@
+version: '2.3'
+
+services:
+  vpnoy:
+    image: kylemanna/openvpn
+    container_name: vpnoy
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 1194:1194/udp
+    volumes:
+      - $PWD/data:/etc/openvpn
+    networks:
+      - vpnoy-network
+
+networks:
+  vpnoy-network:
+    external:
+      name: vpnoy-network
