@@ -13,7 +13,7 @@
     "docker:stop": "sudo docker stop vpnoy",
     "docker:rm": "sudo docker rm -f vpnoy",
     "docker:volume:reset": "rm -rf data",
-    "ovpn:genconfig": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_genconfig -u udp://149.28.230.226:1194 -n 1.1.1.1 -n 1.0.0.1",
+    "ovpn:genconfig": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_genconfig -u udp://47.241.8.144:1194 -n 1.1.1.1 -n 1.0.0.1",
     "ovpn:initpki": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm -it kylemanna/openvpn ovpn_initpki",
     "ovpn:easyrsa": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm -it kylemanna/openvpn easyrsa build-client-full admin",
     "ovpn:getclient": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_getclient admin > $PWD/clients/admin.ovpn",
