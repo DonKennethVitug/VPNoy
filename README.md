@@ -17,6 +17,10 @@
 
 #### Client Create
 
+Generate a client certificate without password [Change clientname to your desired client's name]
+
+    sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm -it kylemanna/openvpn easyrsa build-client-full clientname nopass
+
 Generate a client certificate [Change clientname to your desired client's name]
 
     sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm -it kylemanna/openvpn easyrsa build-client-full clientname
