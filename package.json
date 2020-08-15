@@ -11,7 +11,7 @@
     "docker:restart:soft": "sudo docker restart vpnoy",
     "docker:restart:hard": "npm run docker:rm && npm run docker:init",
     "docker:stop": "sudo docker stop vpnoy",
-    "docker:rm": "sudo docker rm -f vpnoy",
+    "docker:rm": "docker-compose down",
     "docker:volume:reset": "rm -rf data",
     "ovpn:genconfig": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_genconfig -u udp://128.199.191.225:1194 -n 1.1.1.1 -n 1.0.0.1",
     "ovpn:initpki": "sudo docker run -v $PWD/data:/etc/openvpn --log-driver=none --rm -it kylemanna/openvpn ovpn_initpki",
