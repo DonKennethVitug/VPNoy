@@ -12,7 +12,7 @@ services:
       - $PWD/data:/etc/openvpn
     networks:
       vpnoy-network:
-        ipv4_address: 172.19.0.2
+        ipv4_address: 172.18.0.2
 
   vpnoy-cloud:
     container_name: vpnoy-cloud
@@ -37,7 +37,7 @@ services:
       - ./files:/mnt/data
     networks:
       vpnoy-network:
-        ipv4_address: 172.19.0.3
+        ipv4_address: 172.18.0.3
 
   vpnoy-cloud-db:
     container_name: vpnoy-cloud-db
@@ -55,7 +55,7 @@ services:
       - ./backup:/var/lib/backup
     networks:
       vpnoy-network:
-        ipv4_address: 172.19.0.4
+        ipv4_address: 172.18.0.4
 
   vpnoy-cloud-redis:
     container_name: vpnoy-cloud-redis
@@ -67,7 +67,7 @@ services:
       - ./redis:/var/lib/redis
     networks:
       vpnoy-network:
-        ipv4_address: 172.19.0.5
+        ipv4_address: 172.18.0.5
 
 networks:
   vpnoy-network:
